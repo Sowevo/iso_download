@@ -247,45 +247,60 @@ def build_from_versioned_flat_listing(source: Dict) -> List[Dict]:
     artifact_pattern = re.compile(source["artifact_regex"])
     max_artifacts = source.get("max_artifacts", 1)
     entries: List[Dict] = []
+    per_version_failures: List[str] = []
     for version in versions:
         context = {"version": version, "listing_url": base_listing}
         sub_listing_url = format_template(sub_listing_template, context)
-        artifact_html = fetch_text(sub_listing_url)
-        artifact_matches = []
-        for match in artifact_pattern.finditer(artifact_html):
-            primary, groups = get_primary_match(match)
-            artifact_matches.append((primary, groups))
-        if not artifact_matches:
-            raise SourceBuilderError(f"No artifacts matched regex for {sub_listing_url}")
-        artifact_matches = artifact_matches[:max_artifacts]
-        for primary, groups in artifact_matches:
-            entry_context = {
-                "version": version,
-                "listing_url": base_listing,
-                "sub_listing_url": sub_listing_url,
-                "match": primary,
-                **groups,
-            }
-            download_template = source.get("download_template")
-            if download_template:
-                download_url = format_template(download_template, entry_context)
-            else:
-                download_url = urljoin(sub_listing_url, primary)
-            checksum_template = source.get("checksum_template")
-            checksum_url = (
-                format_template(checksum_template, entry_context)
-                if checksum_template
-                else ""
-            )
-            entries.append(
-                {
-                    "distribution": source["distribution"],
-                    "type": source["type"],
-                    "download_url": download_url,
-                    "checksum_url": checksum_url,
-                    "checksum": source.get("checksum", ""),
+        try:
+            artifact_html = fetch_text(sub_listing_url)
+            artifact_matches = []
+            for match in artifact_pattern.finditer(artifact_html):
+                primary, groups = get_primary_match(match)
+                artifact_matches.append((primary, groups))
+            if not artifact_matches:
+                raise SourceBuilderError(
+                    f"No artifacts matched regex for {sub_listing_url}"
+                )
+            artifact_matches = artifact_matches[:max_artifacts]
+            for primary, groups in artifact_matches:
+                entry_context = {
+                    "version": version,
+                    "listing_url": base_listing,
+                    "sub_listing_url": sub_listing_url,
+                    "match": primary,
+                    **groups,
                 }
+                download_template = source.get("download_template")
+                if download_template:
+                    download_url = format_template(download_template, entry_context)
+                else:
+                    download_url = urljoin(sub_listing_url, primary)
+                checksum_template = source.get("checksum_template")
+                checksum_url = (
+                    format_template(checksum_template, entry_context)
+                    if checksum_template
+                    else ""
+                )
+                entries.append(
+                    {
+                        "distribution": source["distribution"],
+                        "type": source["type"],
+                        "download_url": download_url,
+                        "checksum_url": checksum_url,
+                        "checksum": source.get("checksum", ""),
+                    }
+                )
+        except Exception as exc:
+            per_version_failures.append(f"{version}: {exc}")
+            print(
+                f"[WARN] Skipping {source['distribution']} {version}: {exc}",
+                file=sys.stderr,
             )
+            continue
+    if not entries:
+        raise SourceBuilderError(
+            "No artifacts generated; failures: " + "; ".join(per_version_failures)
+        )
     return entries
 
 
