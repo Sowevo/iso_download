@@ -3,13 +3,6 @@
     {
       "distribution": "Arch",
       "type": "linux",
-      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2025.12.01/archlinux-2025.12.01-x86_64.iso",
-      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2025.12.01/sha256sums.txt",
-      "checksum": ""
-    },
-    {
-      "distribution": "Arch",
-      "type": "linux",
       "download_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2026.01.01/archlinux-2026.01.01-x86_64.iso",
       "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2026.01.01/sha256sums.txt",
       "checksum": ""
@@ -19,6 +12,13 @@
       "type": "linux",
       "download_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2026.02.01/archlinux-2026.02.01-x86_64.iso",
       "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2026.02.01/sha256sums.txt",
+      "checksum": ""
+    },
+    {
+      "distribution": "Arch",
+      "type": "linux",
+      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2026.03.01/archlinux-2026.03.01-x86_64.iso",
+      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2026.03.01/sha256sums.txt",
       "checksum": ""
     },
     {
@@ -101,29 +101,15 @@
     {
       "distribution": "Ubuntu",
       "type": "linux",
-      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.3/ubuntu-24.04.3-desktop-amd64.iso",
-      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.3/SHA256SUMS",
+      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.4/ubuntu-24.04.4-desktop-amd64.iso",
+      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.4/SHA256SUMS",
       "checksum": ""
     },
     {
       "distribution": "Ubuntu",
       "type": "linux",
-      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.3/ubuntu-24.04.3-live-server-amd64.iso",
-      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.3/SHA256SUMS",
-      "checksum": ""
-    },
-    {
-      "distribution": "Ubuntu",
-      "type": "linux",
-      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/25.04/ubuntu-25.04-desktop-amd64.iso",
-      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/25.04/SHA256SUMS",
-      "checksum": ""
-    },
-    {
-      "distribution": "Ubuntu",
-      "type": "linux",
-      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/25.04/ubuntu-25.04-live-server-amd64.iso",
-      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/25.04/SHA256SUMS",
+      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.4/ubuntu-24.04.4-live-server-amd64.iso",
+      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.4/SHA256SUMS",
       "checksum": ""
     },
     {
@@ -138,6 +124,20 @@
       "type": "linux",
       "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/25.10/ubuntu-25.10-live-server-amd64.iso",
       "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/25.10/SHA256SUMS",
+      "checksum": ""
+    },
+    {
+      "distribution": "Ubuntu",
+      "type": "linux",
+      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/26.04/ubuntu-26.04-desktop-amd64.iso",
+      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/26.04/SHA256SUMS",
+      "checksum": ""
+    },
+    {
+      "distribution": "Ubuntu",
+      "type": "linux",
+      "download_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/26.04/ubuntu-26.04-live-server-amd64.iso",
+      "checksum_url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/26.04/SHA256SUMS",
       "checksum": ""
     }
   ]
