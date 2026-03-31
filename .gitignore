@@ -46,8 +46,6 @@ coverage.xml
 # 环境变量
 .env
 .venv
-env/
-venv/
 
 # IDE
 .vscode/
@@ -66,10 +64,10 @@ ehthumbs.db
 Thumbs.db
 
 # 下载的文件
-downloads/
 *.iso
 *.dmg
 *.exe
 
 # 日志文件
 *.log
+/linux/
